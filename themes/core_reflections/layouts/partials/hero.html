@@ -1,0 +1,15 @@
+<div class="hero-container">
+    <ul class="services-menu">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+        {{ range .Children }}
+        <li class="{{ if $currentPage.IsMenuCurrent `Children` . }}active{{ end }}">
+            <a href="{{ .URL }}">{{- .Name -}}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ else }}
+    {{ end }}
+    {{ end }}
+</div>

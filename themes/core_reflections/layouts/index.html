@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{- partial "hero.html" . -}}
+<div class="container">
+    {{ .Content }}
+    {{- partial "about-covid.html" . -}}
+</div>
+{{- partial "ethos.html" . -}}
+<div class="container">
+    {{- partial "services-section.html" . -}}
+    {{- partial "testimonials.html" . -}}
+    {{- partial "twitter.html" . -}}
+</div>
+
+{{ end }}

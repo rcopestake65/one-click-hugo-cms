@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{- partial "head.html" . -}}
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
+        {{- partial "header.html" . -}}
+        <main id="content">
+        {{- block "main" . }}
+        {{ .Content }}
+        {{- end }}
+        </main>
+        {{- partial "footer.html" . -}}
+        <script>
+            document.querySelector('.menu-btn').addEventListener('click', () => document.querySelector('.main-menu').classList.toggle('show'));
+        </script>
+        <script src="/js/accordion.js"></script>
+        <script src="/js/scrolling.js"></script>
+        <script src="/js/top.js"></script>
+    </body>
+</html>

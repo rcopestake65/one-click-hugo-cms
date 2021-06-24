@@ -1,0 +1,38 @@
+<!--Nav-->
+<div class="social-menu">
+    <a href="https://twitter.com/PaulineOHallora"><i class="fab fa-twitter fa-lg"></i></a>
+</div>
+<nav class="main-nav">
+    <a href="/" title="home" class="navbar-item">
+        <img class="logo" src="/images/core-reflections-logo-sm.png" alt="Core Reflections logo" class="logo">
+        <h1 class="site-title">{{ .Site.Title }}</h1>
+    </a>
+
+    <ul class="main-menu">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+        <li class="{{ if $currentPage.HasMenuCurrent `main` . }}active{{ end }}">
+            <a href="{{ .URL }}">{{- .Name -}}<i class="fas fa-angle-down fa-xs"></i></a>
+            <div class="sub-menu-container">
+                <ul class="sub-menu">
+                    {{ range .Children }}
+                    <li class="{{ if $currentPage.IsMenuCurrent `main` . }}active{{ end }}">
+                        <a href="{{ .URL }}">{{- .Name -}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            
+        </li>
+        {{ else }}
+        <li>
+            <a href="{{ .URL }}">
+                {{- .Name -}}
+            </a>
+        </li>
+    {{ end }}
+{{ end }}
+
+</ul>
+</nav>
